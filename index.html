@@ -305,7 +305,9 @@
        ========================= -->
   <!-- Đặt nhạc của bạn vào assets/music.mp3 -->
   <audio id="bgMusic" loop>
-    <source src="assets/music.mp3" type="audio/mpeg">
+    <audio id="bgMusic" loop preload="auto">
+  <source src="./assets/music.mp3" type="audio/mpeg">
+</audio>
   </audio>
 
   <!-- Firebase Realtime Database: thay CONFIG ở script.js bằng config Firebase của bạn -->
