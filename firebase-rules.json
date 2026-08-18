@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "loveRooms": {
+      "$roomId": {
+        "letters": {
+          ".read": "auth != null",
+          ".write": "auth != null",
+          "$letterId": {
+            ".validate": "newData.hasChildren(['name', 'text', 'createdAt']) && newData.child('name').isString() && newData.child('text').isString() && newData.child('name').val().length <= 30 && newData.child('text').val().length <= 2000"
+          }
+        }
+      }
+    }
+  }
+}

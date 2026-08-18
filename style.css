@@ -1,0 +1,2103 @@
+/* =====================================================
+   SPIDER LOVE WORLD
+   CSS được chia theo từng khu vực để dễ sửa
+   ===================================================== */
+
+:root {
+  --red: #ff2f5f;
+  --pink: #ff72b6;
+  --pink-dark: #9d285d;
+  --blue: #101b54;
+  --blue-light: #173f91;
+  --purple: #642d8f;
+  --yellow: #ffd85c;
+  --white: #fff;
+  --black: #111;
+  --pixel: "Press Start 2P", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #080d2b;
+  color: var(--white);
+  font-family: var(--pixel);
+  image-rendering: pixelated;
+}
+
+/* =====================================================
+   01. BACKGROUND
+   ===================================================== */
+
+.sky {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  background:
+    radial-gradient(circle at 15% 20%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 75% 15%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 45% 35%, #ffffff 0 1px, transparent 2px),
+    linear-gradient(#081548 0%, #111a55 45%, #281247 100%);
+  background-size: 180px 150px, 230px 180px, 140px 130px, 100% 100%;
+}
+
+.sky::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42vh;
+  background:
+    linear-gradient(90deg, transparent 0 4%, #07102e 4% 12%, transparent 12% 17%,
+      #101738 17% 23%, transparent 23% 29%, #0a1233 29% 36%,
+      transparent 36% 43%, #11183c 43% 51%, transparent 51% 58%,
+      #0b1335 58% 66%, transparent 66% 73%, #11183c 73% 80%,
+      transparent 80% 88%, #0a1233 88% 95%, transparent 95%);
+  opacity: .8;
+}
+
+/* Floating hearts */
+#hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.float-heart {
+  position: absolute;
+  animation: floatUp linear forwards;
+  filter: drop-shadow(0 0 8px #ff4c88);
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(20px) scale(.7);
+    opacity: 0;
+  }
+  15% { opacity: 1; }
+  to {
+    transform: translateY(-110vh) scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* =====================================================
+   02. TOP BAR
+   ===================================================== */
+
+.topbar {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.topbar > * {
+  pointer-events: auto;
+}
+
+.heart-counter {
+  padding: 10px 14px;
+  border: 3px solid #000;
+  background: #261448;
+  box-shadow: 4px 4px 0 #000;
+  font-size: 12px;
+}
+
+/* =====================================================
+   03. BUTTONS
+   ===================================================== */
+
+.pixel-btn,
+.room-btn,
+.map-label {
+  border: 3px solid #000;
+  background: var(--pink);
+  color: white;
+  font-family: var(--pixel);
+  cursor: pointer;
+  box-shadow: 5px 5px 0 #000;
+  transition: .12s ease;
+}
+
+.pixel-btn:hover,
+.room-btn:hover,
+.map-label:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 #000;
+  filter: brightness(1.15);
+}
+
+.pixel-btn:active,
+.room-btn:active,
+.map-label:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 #000;
+}
+
+.pixel-btn {
+  padding: 13px 18px;
+  font-size: 11px;
+}
+
+.pixel-btn.small {
+  font-size: 9px;
+  padding: 10px 12px;
+  background: #151515;
+}
+
+.pixel-btn.big {
+  padding: 18px 28px;
+  font-size: 13px;
+  background: linear-gradient(#ff79ba, #d52e74);
+}
+
+/* =====================================================
+   04. HERO
+   ===================================================== */
+
+.section {
+  width: 100%;
+}
+
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px 50px;
+  overflow: hidden;
+}
+
+.moon {
+  position: absolute;
+  top: 90px;
+  left: 17%;
+  width: 70px;
+  height: 70px;
+  background: #eaf6ff;
+  border: 6px solid #a9c9ee;
+  box-shadow: 0 0 35px #8ccaff;
+}
+
+.hero-title {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  text-shadow: 5px 5px 0 #000;
+}
+
+.hero-title span {
+  display: block;
+  font-size: clamp(24px, 5vw, 58px);
+}
+
+.hero-title strong {
+  display: block;
+  margin: 8px 0 18px;
+  color: #ff77bb;
+  font-size: clamp(22px, 5vw, 55px);
+  line-height: 1.25;
+}
+
+.hero-title small {
+  font-size: clamp(9px, 1.4vw, 14px);
+}
+
+.spiderman {
+  position: relative;
+  width: 110px;
+  height: 190px;
+  margin: 25px 0;
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(8px 10px 0 #000);
+  z-index: 3;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(-10px); }
+}
+
+.spiderman .head {
+  position: absolute;
+  width: 76px;
+  height: 72px;
+  left: 17px;
+  top: 0;
+  background: #e6283f;
+  border: 5px solid #111;
+}
+
+.spiderman .head::before,
+.spiderman .head::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  width: 18px;
+  height: 28px;
+  background: white;
+  border: 4px solid #111;
+}
+
+.spiderman .head::before {
+  left: 9px;
+  transform: skew(-12deg);
+}
+
+.spiderman .head::after {
+  right: 9px;
+  transform: skew(12deg);
+}
+
+.spiderman .body {
+  position: absolute;
+  left: 12px;
+  top: 66px;
+  width: 86px;
+  height: 85px;
+  background: #df273b;
+  border: 5px solid #111;
+}
+
+.spiderman .body::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 28px;
+  background: #17428b;
+}
+
+.spider-logo {
+  position: absolute;
+  left: 34px;
+  top: 25px;
+  width: 18px;
+  height: 27px;
+  display: block;
+}
+
+/* Nhện 8 chân thật thay cho ký hiệu hình thoi */
+.spider-emblem,
+.mini-spider-emblem {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 27px;
+}
+.spider-emblem::before,
+.spider-emblem::after,
+.mini-spider-emblem::before,
+.mini-spider-emblem::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 5px;
+  width: 5px;
+  height: 15px;
+  background: #111;
+  border-radius: 3px;
+}
+.spider-emblem::before, .mini-spider-emblem::before { transform: rotate(25deg); }
+.spider-emblem::after, .mini-spider-emblem::after { transform: rotate(-25deg); }
+.spider-emblem i, .mini-spider-emblem i {
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  background: #111;
+  border-radius: 3px;
+  transform-origin: 100% 50%;
+}
+.spider-emblem i:nth-child(1), .mini-spider-emblem i:nth-child(1) { left: 1px; top: 5px; transform: rotate(28deg); }
+.spider-emblem i:nth-child(2), .mini-spider-emblem i:nth-child(2) { left: 0; top: 10px; transform: rotate(10deg); }
+.spider-emblem i:nth-child(3), .mini-spider-emblem i:nth-child(3) { left: 1px; top: 16px; transform: rotate(-18deg); }
+.spider-emblem i:nth-child(4), .mini-spider-emblem i:nth-child(4) { left: 3px; top: 21px; transform: rotate(-38deg); }
+.spider-emblem i:nth-child(5), .mini-spider-emblem i:nth-child(5) { right: 1px; top: 5px; transform-origin: 0 50%; transform: rotate(-28deg); }
+.spider-emblem i:nth-child(6), .mini-spider-emblem i:nth-child(6) { right: 0; top: 10px; transform-origin: 0 50%; transform: rotate(-10deg); }
+.spider-emblem i:nth-child(7), .mini-spider-emblem i:nth-child(7) { right: 1px; top: 16px; transform-origin: 0 50%; transform: rotate(18deg); }
+.spider-emblem i:nth-child(8), .mini-spider-emblem i:nth-child(8) { right: 3px; top: 21px; transform-origin: 0 50%; transform: rotate(38deg); }
+.spider-emblem i::after, .mini-spider-emblem i::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  left: 0;
+  top: 0;
+  background: #111;
+  border-radius: 50%;
+}
+
+
+.spiderman .arm,
+.spiderman .leg {
+  position: absolute;
+  background: #194b9a;
+  border: 5px solid #111;
+}
+
+.spiderman .arm {
+  top: 72px;
+  width: 25px;
+  height: 75px;
+}
+
+.spiderman .arm.left { left: -5px; transform: rotate(15deg); }
+.spiderman .arm.right { right: -5px; transform: rotate(-15deg); }
+
+.spiderman .leg {
+  top: 142px;
+  width: 30px;
+  height: 50px;
+}
+
+.spiderman .leg.left { left: 18px; }
+.spiderman .leg.right { right: 18px; }
+
+/* =====================================================
+   05. WORLD / CITY
+   ===================================================== */
+
+.world {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 650px;
+  border-top: 6px solid #000;
+  border-bottom: 6px solid #000;
+}
+
+.section-card {
+  min-width: 0;
+  border-right: 3px solid #000;
+  background: #1a1745;
+}
+
+.card-title {
+  min-height: 58px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: linear-gradient(#8d2862, #4c1a4d);
+  border-bottom: 4px solid #000;
+  color: #ff8bc6;
+  font-size: clamp(12px, 1.7vw, 18px);
+  text-shadow: 3px 3px 0 #000;
+}
+
+/* City */
+.city {
+  position: relative;
+  min-height: 590px;
+  overflow: hidden;
+  background:
+    linear-gradient(transparent 70%, #111b25 70%),
+    linear-gradient(90deg, #10275c 0 18%, #172b68 18% 32%, #0d1e4c 32% 47%,
+      #1a2d65 47% 64%, #10275c 64% 78%, #1b2e69 78% 100%);
+}
+
+.city::before {
+  content: "";
+  position: absolute;
+  inset: 20% 0 auto;
+  height: 2px;
+  background: #59b9ff;
+  box-shadow: 0 100px #59b9ff, 0 200px #59b9ff;
+  opacity: .25;
+}
+
+.river {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: repeating-linear-gradient(
+    0deg,
+    #102b64 0 12px,
+    #1e4d92 12px 15px
+  );
+  border-top: 5px solid #071128;
+}
+
+.house {
+  position: absolute;
+  bottom: 26%;
+  width: 115px;
+  height: 95px;
+  background: #713c2b;
+  border: 5px solid #111;
+}
+
+.house::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: -52px;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-bottom: 55px solid #3d1d35;
+}
+
+.house::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 25px;
+  width: 18px;
+  height: 18px;
+  background: #ffd86b;
+  box-shadow: 55px 0 #ffd86b;
+}
+
+.house-one { left: 12%; }
+.house-two { right: 13%; transform: scale(.8); }
+
+.tree {
+  position: absolute;
+  bottom: 26%;
+  width: 32px;
+  height: 90px;
+  background: #583721;
+  border: 4px solid #111;
+}
+
+.tree::before {
+  content: "";
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  left: -25px;
+  top: -48px;
+  background: #2f8c4c;
+  border: 5px solid #111;
+}
+
+.tree-one { left: 3%; }
+.tree-two { right: 4%; }
+
+.mini-spider {
+  position: absolute;
+  bottom: 29%;
+  left: 47%;
+  width: 28px;
+  height: 42px;
+  background: #d92740;
+  border: 4px solid #111;
+}
+
+.map-label {
+  position: absolute;
+  padding: 9px;
+  background: #181818;
+  font-size: 8px;
+  z-index: 4;
+}
+
+.map-label[data-scroll="#house"] {
+  left: 7%;
+  top: 13%;
+}
+
+.garden-label {
+  right: 6%;
+  top: 30%;
+}
+
+.drag-note {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 9px 12px;
+  background: #151515;
+  border: 3px solid #000;
+  font-size: 7px;
+  white-space: nowrap;
+}
+
+/* =====================================================
+   06. LOVE HOUSE
+   ===================================================== */
+
+.room {
+  min-height: 590px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 15%, #ffd66c 0 3px, transparent 4px),
+    linear-gradient(#532147, #24152f 70%);
+}
+
+.room::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 80px, #7c3157 81px 84px),
+    linear-gradient(180deg, transparent 0 72%, #682d4c 72% 100%);
+  opacity: .55;
+}
+
+.lights {
+  position: absolute;
+  top: 22px;
+  left: 5%;
+  right: 5%;
+  height: 35px;
+  border-top: 4px solid #171717;
+  background: repeating-radial-gradient(circle, #ffd866 0 5px, transparent 6px 45px);
+}
+
+.picture {
+  position: absolute;
+  top: 18%;
+  left: 40%;
+  width: 100px;
+  height: 75px;
+  background: #ffcf73;
+  border: 7px solid #4a251b;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #ff356d;
+}
+
+.sofa {
+  position: absolute;
+  bottom: 16%;
+  left: 16%;
+  width: 230px;
+  height: 100px;
+  background: #d94e92;
+  border: 6px solid #111;
+  border-radius: 15px 15px 5px 5px;
+}
+
+.bear {
+  position: absolute;
+  bottom: 16%;
+  right: 12%;
+  font-size: 70px;
+}
+
+.gift-box {
+  position: absolute;
+  bottom: 17%;
+  left: 46%;
+  font-size: 58px;
+  filter: drop-shadow(5px 5px 0 #111);
+}
+
+.room-btn {
+  position: absolute;
+  padding: 10px;
+  background: #151515;
+  font-size: 8px;
+  z-index: 5;
+}
+
+.letter-btn { left: 8%; top: 50%; }
+.gift-btn { left: 43%; bottom: 8%; }
+.photo-btn { right: 7%; top: 48%; }
+
+/* =====================================================
+   07. SURPRISE
+   ===================================================== */
+
+.surprise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+  background:
+    radial-gradient(circle, #ff438a 0 2px, transparent 3px),
+    linear-gradient(#170e42, #0a0b2c);
+  background-size: 100px 100px, 100% 100%;
+  border-bottom: 6px solid #000;
+}
+
+.surprise-box,
+.achievement {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  border-right: 3px solid #000;
+}
+
+.surprise-box p {
+  margin-top: 35px;
+  font-size: 13px;
+}
+
+.surprise-box strong {
+  margin-top: 18px;
+  color: #ff76b9;
+  font-size: clamp(14px, 2vw, 22px);
+  line-height: 1.8;
+  text-shadow: 3px 3px #000;
+}
+
+.big-heart {
+  margin-top: 20px;
+  color: #ff386e;
+  font-size: 50px;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  50% { transform: scale(1.3); }
+}
+
+.achievement-title {
+  font-size: 14px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.achievement-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px;
+  border: 4px solid #000;
+  background: #242424;
+  box-shadow: 6px 6px 0 #000;
+}
+
+.achievement-item span {
+  font-size: 28px;
+}
+
+.achievement-item strong {
+  color: #ff81bd;
+  font-size: 10px;
+}
+
+.achievement p {
+  margin-top: 30px;
+  font-size: 9px;
+  color: #ffd86a;
+}
+
+/* =====================================================
+   08. MODAL
+   ===================================================== */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, .78);
+  backdrop-filter: blur(5px);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  position: relative;
+  width: min(620px, 95vw);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 8px;
+  background: #111;
+  border: 5px solid #000;
+  box-shadow: 10px 10px 0 #000;
+}
+
+.modal-content {
+  padding: 35px 25px;
+  background: linear-gradient(135deg, #551f51, #24143f);
+  border: 3px solid #ff70b2;
+  text-align: center;
+}
+
+.modal-content h2 {
+  color: #ff7fbd;
+  font-size: 17px;
+  margin-bottom: 30px;
+}
+
+.modal-content p {
+  line-height: 2;
+  font-size: 10px;
+}
+
+.modal-heart {
+  margin-top: 20px;
+  color: #ff3f70;
+  font-size: 45px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  width: 35px;
+  height: 35px;
+  background: #ff3b6d;
+  color: white;
+  border: 3px solid #000;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content {
+  display: none;
+}
+
+.modal-content.active {
+  display: block;
+}
+
+.gift-animation {
+  font-size: 90px;
+  animation: giftShake .8s infinite alternate;
+}
+
+@keyframes giftShake {
+  to { transform: rotate(-5deg) scale(1.08); }
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.photo-grid .memory-card {
+  min-height: 140px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(135deg, #ff70ad, #59309b);
+  border: 4px solid #000;
+}
+
+.photo-grid .memory-card img {
+  width: 100%;
+  height: 140px;
+  display: block;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+.photo-grid .memory-card small {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 7px 5px;
+  background: rgba(0, 0, 0, .72);
+  color: #fff;
+  font-size: 8px;
+  text-align: center;
+}
+
+.hint {
+  color: #ffd969;
+}
+
+
+/* =====================================================
+   LOVE LETTER - SHARED REALTIME ROOM
+   ===================================================== */
+.letter-subtitle {
+  color: #f8d8ec;
+  font-size: 9px !important;
+  line-height: 1.8 !important;
+  margin-bottom: 18px !important;
+}
+
+.letter-room, .letter-compose, .letter-board {
+  margin-top: 16px;
+  padding: 14px;
+  border: 3px solid #000;
+  background: rgba(0,0,0,.25);
+  text-align: left;
+}
+
+.letter-room label, .letter-compose label {
+  display: block;
+  margin: 4px 0 8px;
+  color: #ffd86a;
+  font-size: 8px;
+}
+
+.room-row {
+  display: flex;
+  gap: 8px;
+}
+
+.letter-input, .letter-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 3px solid #000;
+  background: #16101b;
+  color: #fff;
+  font-family: inherit;
+  font-size: 9px;
+  padding: 11px;
+  outline: none;
+}
+
+.letter-input:focus, .letter-textarea:focus {
+  border-color: #ff70b2;
+}
+
+.letter-textarea {
+  min-height: 130px;
+  resize: vertical;
+  line-height: 1.8;
+}
+
+.letter-room .tiny {
+  margin-top: 9px;
+  font-size: 7px;
+}
+
+.letter-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.letter-status {
+  color: #9fffb9;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.letter-status.error { color: #ff849c; }
+
+.letter-board-head {
+  color: #ff8fc5;
+  font-size: 9px;
+  margin-bottom: 10px;
+}
+
+.letter-board-head span {
+  float: right;
+  color: #ffd86a;
+}
+
+.letter-list {
+  display: grid;
+  gap: 10px;
+}
+
+.letter-entry {
+  padding: 13px;
+  background: #24172c;
+  border: 2px solid #6e3c68;
+  box-shadow: 4px 4px 0 #000;
+}
+
+.letter-entry-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #ffd86a;
+  font-size: 8px;
+  margin-bottom: 9px;
+}
+
+.letter-entry-date { color: #a99aad; font-size: 7px; }
+
+.letter-entry-body {
+  color: #fff;
+  font-size: 9px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.empty-letter {
+  padding: 18px 8px;
+  color: #bba8bc;
+  font-size: 8px;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .room-row, .letter-actions { flex-direction: column; align-items: stretch; }
+}
+
+/* =====================================================
+   09. MOBILE
+   ===================================================== */
+
+@media (max-width: 800px) {
+  .world,
+  .surprise {
+    grid-template-columns: 1fr;
+  }
+
+  .section-card {
+    border-right: 0;
+    border-bottom: 4px solid #000;
+  }
+
+  .hero-title strong {
+    max-width: 90vw;
+  }
+
+  .moon {
+    left: 8%;
+    width: 50px;
+    height: 50px;
+  }
+
+  .city,
+  .room {
+    min-height: 500px;
+  }
+
+  .surprise-box,
+  .achievement {
+    min-height: 350px;
+    border-right: 0;
+    border-bottom: 4px solid #000;
+  }
+
+  .sofa {
+    width: 180px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .pixel-btn.big {
+    font-size: 9px;
+  }
+
+  .hero-title span {
+    font-size: 22px;
+  }
+
+  .hero-title strong {
+    font-size: 20px;
+  }
+
+  .hero-title small {
+    font-size: 7px;
+  }
+
+  .spiderman {
+    transform: scale(.8);
+    margin: 10px 0;
+  }
+
+  .spiderman:hover {
+    transform: scale(.85);
+  }
+
+  .city,
+  .room {
+    min-height: 430px;
+  }
+
+  .sofa {
+    left: 10%;
+    width: 150px;
+    height: 75px;
+  }
+
+  .bear {
+    font-size: 50px;
+  }
+
+  .gift-box {
+    font-size: 45px;
+  }
+
+  .room-btn {
+    font-size: 6px;
+    padding: 7px;
+  }
+
+  .drag-note {
+    font-size: 5px;
+  }
+}
+
+
+/* =====================================================
+   10. EXTRA SPIDER-MAN DETAILS
+   Mỗi khung chính có một Spider-Man riêng
+   ===================================================== */
+
+/* Hero: mặt nạ rõ hơn, web pattern + logo nhện */
+.spiderman-hero {
+  transform-origin: bottom center;
+}
+
+.spiderman .head {
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 15px, rgba(0,0,0,.35) 16px 18px),
+    repeating-linear-gradient(90deg, transparent 0 18px, rgba(0,0,0,.35) 19px 21px),
+    #e52c3f;
+  box-shadow: inset 0 0 0 4px #9d1629;
+}
+
+.spiderman .head::before,
+.spiderman .head::after {
+  z-index: 4;
+}
+
+.mask-web {
+  position: absolute;
+  z-index: 2;
+  width: 110px;
+  height: 110px;
+  left: -17px;
+  top: -20px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.4);
+}
+
+.mask-web.w2 {
+  transform: rotate(90deg);
+}
+
+.spiderman .body {
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 47%, #111 48% 52%, transparent 53%),
+    linear-gradient(#e52c3f 0 58%, #1b4c9c 59%);
+}
+
+.chest-web {
+  position: absolute;
+  inset: 8px 10px 18px;
+  background:
+    repeating-radial-gradient(circle at 50% 20%, transparent 0 9px, rgba(0,0,0,.45) 10px 12px);
+  opacity: .65;
+}
+
+.spider-logo {
+  z-index: 3;
+  filter: grayscale(1) brightness(.1);
+  transform: scale(1.2);
+}
+
+.web-line {
+  position: absolute;
+  top: -130px;
+  left: 48px;
+  width: 3px;
+  height: 125px;
+  background: #fff;
+  box-shadow: 0 0 0 1px #111;
+  transform-origin: bottom;
+  animation: webSwing 2.2s ease-in-out infinite;
+}
+
+.web-line::before {
+  content: "🕸️";
+  position: absolute;
+  top: -24px;
+  left: -13px;
+  font-size: 23px;
+}
+
+@keyframes webSwing {
+  0%,100% { transform: rotate(4deg); }
+  50% { transform: rotate(-7deg); }
+}
+
+/* City Spider-Man */
+.city-spiderman,
+.room-spiderman,
+.surprise-spiderman,
+.achievement-spiderman {
+  position: absolute;
+  z-index: 6;
+  width: 62px;
+  height: 105px;
+  filter: drop-shadow(5px 6px 0 #000);
+  animation: littleHero 2s ease-in-out infinite;
+}
+
+.city-spiderman {
+  bottom: 27%;
+  left: 47%;
+  transform: scale(.9);
+}
+
+@keyframes littleHero {
+  50% { transform: translateY(-5px); }
+}
+
+.mini-head {
+  position: absolute;
+  left: 13px;
+  top: 0;
+  width: 38px;
+  height: 39px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 9px, rgba(0,0,0,.25) 10px 11px),
+    #e52c3f;
+  border: 3px solid #111;
+  z-index: 3;
+}
+
+.mini-head::before,
+.mini-head::after {
+  content: "";
+  position: absolute;
+  top: 11px;
+  width: 9px;
+  height: 14px;
+  background: #fff;
+  border: 2px solid #111;
+}
+
+.mini-head::before {
+  left: 4px;
+  transform: skew(-10deg);
+}
+
+.mini-head::after {
+  right: 4px;
+  transform: skew(10deg);
+}
+
+.mini-body {
+  position: absolute;
+  left: 10px;
+  top: 35px;
+  width: 43px;
+  height: 45px;
+  background: linear-gradient(#e52c3f 0 55%, #1c4d9c 56%);
+  border: 3px solid #111;
+  text-align: center;
+  padding-top: 9px;
+  font-size: 16px;
+  overflow: hidden;
+}
+
+.mini-body span {
+  filter: grayscale(1) brightness(.1);
+}
+
+.mini-arm,
+.mini-leg {
+  position: absolute;
+  background: #1c4d9c;
+  border: 3px solid #111;
+}
+
+.mini-arm {
+  top: 40px;
+  width: 13px;
+  height: 42px;
+}
+
+.mini-arm.a1 { left: 0; transform: rotate(15deg); }
+.mini-arm.a2 { right: 0; transform: rotate(-15deg); }
+
+.mini-leg {
+  top: 76px;
+  width: 14px;
+  height: 29px;
+}
+
+.mini-leg.l1 { left: 14px; }
+.mini-leg.l2 { right: 14px; }
+
+.web-sticker {
+  position: absolute;
+  right: 17%;
+  top: 10%;
+  font-size: 32px;
+  animation: webSpin 5s linear infinite;
+  filter: drop-shadow(3px 3px 0 #000);
+}
+
+@keyframes webSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* Love House Spider-Man */
+.room-spiderman {
+  left: 31%;
+  bottom: 18%;
+  transform: scale(.95);
+}
+
+.room-heart {
+  position: absolute;
+  top: -24px;
+  right: -25px;
+  color: #ff4c87;
+  font-size: 20px;
+  animation: pulse 1s infinite;
+}
+
+/* Surprise Spider-Man */
+.surprise-spiderman {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin-bottom: 15px;
+  transform: scale(.8);
+}
+
+/* Achievement Spider-Man */
+.achievement-spiderman {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin: -10px 0 15px;
+  transform: scale(.72);
+}
+
+/* Modal spider */
+.modal-spiderman {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  animation: bounce 1.5s ease-in-out infinite;
+  filter: drop-shadow(4px 4px 0 #000);
+}
+
+/* More cute decorative details */
+.room::after {
+  content: "♥   🕸️   ♥   ✨   🕷️   ♥";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 35%;
+  text-align: center;
+  color: #ff78b8;
+  font-size: 16px;
+  letter-spacing: 10px;
+  opacity: .7;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  50% { opacity: .25; transform: scale(.98); }
+}
+
+.city::after {
+  content: "🕸️       ♥       🕷️       ♥       🕸️";
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  right: 5%;
+  text-align: center;
+  font-size: 15px;
+  opacity: .75;
+}
+
+.surprise-box::after {
+  content: "🕸️   ♥   🕷️   ♥   🕸️";
+  position: absolute;
+  bottom: 10px;
+  font-size: 15px;
+  opacity: .7;
+}
+
+@media (max-width: 500px) {
+  .city-spiderman,
+  .room-spiderman {
+    transform: scale(.72);
+  }
+
+  .room-spiderman {
+    left: 24%;
+  }
+
+  .web-sticker {
+    font-size: 22px;
+  }
+}
+
+
+/* =====================================================
+   V3 STYLE: DISTINCT SPIDER-MAN POSES + SPIDER LOGOS
+   ===================================================== */
+
+.spider-logo-badge {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 8px;
+  background: #151515;
+  border: 3px solid #000;
+  color: #ff5b91;
+  font-size: 18px;
+  box-shadow: 3px 3px 0 #000;
+  animation: badgePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  50% { transform: scale(1.08) rotate(-3deg); }
+}
+
+/* Base character shared by every pose */
+.pose-spiderman {
+  position: absolute;
+  z-index: 12;
+  width: 72px;
+  height: 120px;
+  filter: drop-shadow(5px 6px 0 #000);
+  transform-origin: center bottom;
+}
+
+.pose-head {
+  position: absolute;
+  left: 17px;
+  top: 0;
+  width: 43px;
+  height: 45px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 10px, rgba(0,0,0,.25) 11px 12px),
+    repeating-linear-gradient(90deg, transparent 0 12px, rgba(0,0,0,.25) 13px 14px),
+    #e52c3f;
+  border: 4px solid #111;
+  z-index: 4;
+}
+
+.pose-head::before,
+.pose-head::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  width: 10px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #111;
+}
+
+.pose-head::before {
+  left: 4px;
+  transform: skew(-11deg);
+}
+
+.pose-head::after {
+  right: 4px;
+  transform: skew(11deg);
+}
+
+.pose-body {
+  position: absolute;
+  left: 13px;
+  top: 41px;
+  width: 47px;
+  height: 50px;
+  background:
+    linear-gradient(90deg, transparent 47%, #111 48% 52%, transparent 53%),
+    linear-gradient(#e52c3f 0 55%, #194b9a 56%);
+  border: 4px solid #111;
+  text-align: center;
+  padding-top: 10px;
+  overflow: hidden;
+}
+
+.pose-body span {
+  color: #111;
+  filter: grayscale(1) brightness(.1);
+  font-size: 17px;
+}
+
+.pose-arm,
+.pose-leg {
+  position: absolute;
+  background: #194b9a;
+  border: 4px solid #111;
+  z-index: 2;
+}
+
+.pose-arm {
+  top: 45px;
+  width: 15px;
+  height: 48px;
+}
+
+.pose-leg {
+  top: 86px;
+  width: 17px;
+  height: 35px;
+}
+
+/* Pose 1: swinging on web */
+.pose-swing {
+  left: 47%;
+  bottom: 28%;
+  animation: swingHero 2.6s ease-in-out infinite;
+}
+
+.pose-swing .arm-a {
+  left: 2px;
+  transform: rotate(48deg);
+  transform-origin: top center;
+}
+
+.pose-swing .arm-b {
+  right: -1px;
+  transform: rotate(-72deg);
+  transform-origin: top center;
+}
+
+.pose-swing .leg-a {
+  left: 15px;
+  transform: rotate(28deg);
+}
+
+.pose-swing .leg-b {
+  right: 9px;
+  transform: rotate(-48deg);
+}
+
+.web-rope {
+  position: absolute;
+  width: 3px;
+  height: 115px;
+  background: #fff;
+  border: 1px solid #111;
+  left: 41px;
+  top: -108px;
+  transform: rotate(-8deg);
+}
+
+.web-rope::before {
+  content: "🕸";
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  font-size: 20px;
+}
+
+@keyframes swingHero {
+  0%, 100% { transform: rotate(7deg) translateY(0); }
+  50% { transform: rotate(-8deg) translateY(-8px); }
+}
+
+/* Pose 2: holding gift */
+.pose-gift {
+  left: 31%;
+  bottom: 18%;
+  animation: giftHero 2s ease-in-out infinite;
+}
+
+.pose-gift .arm-a {
+  left: 2px;
+  transform: rotate(30deg);
+}
+
+.pose-gift .arm-b {
+  right: -2px;
+  transform: rotate(-35deg);
+}
+
+.pose-gift .leg-a { left: 14px; transform: rotate(5deg); }
+.pose-gift .leg-b { right: 12px; transform: rotate(-5deg); }
+
+.tiny-gift {
+  position: absolute;
+  z-index: 8;
+  left: 47px;
+  top: 65px;
+  font-size: 25px;
+  filter: drop-shadow(2px 2px 0 #000);
+}
+
+@keyframes giftHero {
+  50% { transform: translateY(-6px) rotate(-2deg); }
+}
+
+/* Pose 3: heart pose */
+.pose-heart {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin: 10px auto 0;
+  animation: heartHero 1.8s ease-in-out infinite;
+}
+
+.pose-heart .arm-a {
+  left: -1px;
+  transform: rotate(62deg);
+  transform-origin: top center;
+}
+
+.pose-heart .arm-b {
+  right: -1px;
+  transform: rotate(-62deg);
+  transform-origin: top center;
+}
+
+.pose-heart .leg-a { left: 14px; }
+.pose-heart .leg-b { right: 12px; }
+
+.heart-pose {
+  position: absolute;
+  left: 22px;
+  top: 48px;
+  z-index: 9;
+  color: #ff4e8b;
+  font-size: 24px;
+  text-shadow: 2px 2px #000;
+}
+
+@keyframes heartHero {
+  50% { transform: scale(1.06) translateY(-5px); }
+}
+
+/* Pose 4: waving */
+.pose-wave {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  margin: -5px auto 5px;
+  animation: waveHero 2s ease-in-out infinite;
+}
+
+.pose-wave .arm-a {
+  left: 0;
+  transform: rotate(25deg);
+}
+
+.pose-wave .arm-b {
+  right: -8px;
+  top: 24px;
+  transform: rotate(-58deg);
+  transform-origin: bottom center;
+}
+
+.pose-wave .leg-a { left: 14px; transform: rotate(5deg); }
+.pose-wave .leg-b { right: 12px; transform: rotate(-5deg); }
+
+.wave-spark {
+  position: absolute;
+  right: -23px;
+  top: 5px;
+  color: #ffd85c;
+  font-size: 18px;
+  animation: sparkle 1s infinite;
+}
+
+@keyframes waveHero {
+  50% { transform: rotate(-3deg) translateY(-4px); }
+}
+
+/* Extra tiny spider stickers around the sections */
+.city-card::before,
+.house-card::before {
+  content: "🕷️   🕸️   🕷️";
+  position: absolute;
+  z-index: 20;
+  margin: 68px 0 0 12px;
+  font-size: 13px;
+  opacity: .9;
+  pointer-events: none;
+}
+
+/* =====================================================
+   BÁCH KHOA CAMPUS — background detail for the city frame
+   (kept out of the two bottom mystery panels)
+   ===================================================== */
+.hust-campus {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 18%;
+  height: 38%;
+  z-index: 1;
+  opacity: .72;
+  pointer-events: none;
+  filter: drop-shadow(4px 4px 0 rgba(0,0,0,.55));
+}
+.hust-main {
+  position: absolute;
+  left: 28%;
+  bottom: 0;
+  width: 44%;
+  height: 76%;
+  background: linear-gradient(#c96d4f 0 18%, #8c3d3e 19% 100%);
+  border: 5px solid #251b3a;
+  box-shadow: inset 0 -13px 0 rgba(35,15,44,.5);
+}
+.hust-main::before {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  top: -20px;
+  height: 20px;
+  background: #e6a14e;
+  border: 4px solid #251b3a;
+}
+.hust-main span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 7px;
+  text-align: center;
+  color: #ffe7a1;
+  font-size: clamp(7px, 1vw, 11px);
+  text-shadow: 2px 2px #3a1b35;
+}
+.hust-tower {
+  position: absolute;
+  left: 44%;
+  bottom: 74%;
+  width: 12%;
+  height: 22%;
+  background: #a84d46;
+  border: 4px solid #251b3a;
+}
+.hust-tower::before {
+  content: "";
+  position: absolute;
+  left: 28%;
+  top: -18px;
+  width: 44%;
+  height: 18px;
+  background: #e6a14e;
+  border: 3px solid #251b3a;
+}
+.hust-wing {
+  position: absolute;
+  bottom: 0;
+  width: 30%;
+  height: 48%;
+  background: #7d3840;
+  border: 5px solid #251b3a;
+}
+.hust-wing.left { left: 0; }
+.hust-wing.right { right: 0; }
+.hust-wing::after {
+  content: "";
+  position: absolute;
+  inset: 18% 12%;
+  background: repeating-linear-gradient(90deg, #ffd36a 0 7px, transparent 7px 17px);
+  opacity: .55;
+}
+.hust-trees {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  bottom: -8px;
+  height: 24px;
+  background: repeating-linear-gradient(90deg, transparent 0 30px, #2d774e 30px 42px, transparent 42px 64px);
+  border-bottom: 5px solid #211832;
+}
+
+.city-card,
+.house-card {
+  position: relative;
+}
+
+@media (max-width: 500px) {
+  .pose-swing,
+  .pose-gift {
+    transform: scale(.75);
+  }
+
+  .pose-swing {
+    left: 43%;
+  }
+
+  .pose-gift {
+    left: 24%;
+  }
+
+  .spider-logo-badge {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+}
+
+/* =====================================================
+   11. COUPLE + CATS SCENES
+   Pure CSS/pixel elements — no image files required.
+   ===================================================== */
+.scene-character {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.pixel-spider {
+  position: absolute;
+  width: 72px;
+  height: 118px;
+  filter: drop-shadow(5px 6px 0 #000);
+  transform-origin: center bottom;
+}
+
+.ps-head {
+  position: absolute;
+  left: 17px;
+  top: 0;
+  width: 42px;
+  height: 44px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 9px, rgba(0,0,0,.22) 10px 11px),
+    repeating-linear-gradient(90deg, transparent 0 11px, rgba(0,0,0,.22) 12px 13px),
+    #e52c3f;
+  border: 4px solid #111;
+  z-index: 3;
+}
+
+.ps-head::before,
+.ps-head::after {
+  content: "";
+  position: absolute;
+  top: 12px;
+  width: 10px;
+  height: 16px;
+  background: #fff;
+  border: 3px solid #111;
+}
+.ps-head::before { left: 4px; transform: skew(-11deg); }
+.ps-head::after { right: 4px; transform: skew(11deg); }
+
+.ps-body {
+  position: absolute;
+  left: 12px;
+  top: 40px;
+  width: 48px;
+  height: 51px;
+  background:
+    linear-gradient(90deg, transparent 47%, #111 48% 52%, transparent 53%),
+    linear-gradient(#e52c3f 0 54%, #194b9a 55%);
+  border: 4px solid #111;
+  text-align: center;
+  padding-top: 9px;
+}
+.ps-body span { color: #111; font-size: 17px; }
+.mini-spider-emblem {
+  width: 16px;
+  height: 24px;
+  margin: -2px auto 0;
+  transform: scale(.72);
+  transform-origin: center top;
+}
+
+.ps-arm,
+.ps-leg {
+  position: absolute;
+  background: #194b9a;
+  border: 4px solid #111;
+  z-index: 2;
+}
+.ps-arm { top: 44px; width: 15px; height: 47px; }
+.ps-leg { top: 87px; width: 17px; height: 31px; }
+.ps-a1 { left: 0; transform: rotate(30deg); transform-origin: top center; }
+.ps-a2 { right: -1px; transform: rotate(-52deg); transform-origin: top center; }
+.ps-l1 { left: 14px; transform: rotate(8deg); }
+.ps-l2 { right: 12px; transform: rotate(-8deg); }
+.ps-web {
+  position: absolute;
+  width: 3px;
+  height: 90px;
+  left: 35px;
+  top: -83px;
+  background: #fff;
+  border: 1px solid #111;
+}
+.ps-web::after {
+  content: "🕸";
+  position: absolute;
+  top: -22px;
+  left: -10px;
+  font-size: 18px;
+}
+
+.city-spider-character {
+  left: 49%;
+  bottom: 27%;
+  animation: coupleSpiderSwing 2.6s ease-in-out infinite;
+}
+@keyframes coupleSpiderSwing {
+  0%,100% { transform: rotate(7deg) translateY(0); }
+  50% { transform: rotate(-7deg) translateY(-7px); }
+}
+
+.room-spider-character {
+  left: 34%;
+  bottom: 18%;
+  transform: scale(.9);
+  animation: coupleSpiderFloat 2s ease-in-out infinite;
+}
+@keyframes coupleSpiderFloat {
+  50% { transform: scale(.9) translateY(-6px) rotate(-2deg); }
+}
+
+.minecraft-girl {
+  position: absolute;
+  width: 58px;
+  height: 112px;
+  filter: drop-shadow(4px 5px 0 #000);
+  transform-origin: center bottom;
+  animation: girlFloat 2.4s ease-in-out infinite;
+}
+
+.mc-hair {
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 42px;
+  height: 43px;
+  background: #5b3027;
+  border: 4px solid #111;
+  z-index: 3;
+}
+.mc-face {
+  position: absolute;
+  left: 13px;
+  top: 8px;
+  width: 32px;
+  height: 32px;
+  background: #f2bd91;
+  border: 3px solid #111;
+  z-index: 4;
+}
+.mc-face::before,
+.mc-face::after {
+  content: "";
+  position: absolute;
+  top: 13px;
+  width: 4px;
+  height: 4px;
+  background: #111;
+}
+.mc-face::before { left: 7px; }
+.mc-face::after { right: 7px; }
+.mc-body {
+  position: absolute;
+  left: 10px;
+  top: 39px;
+  width: 38px;
+  height: 43px;
+  background: #6d63c9;
+  border: 4px solid #111;
+}
+.mc-arm {
+  position: absolute;
+  top: 42px;
+  width: 12px;
+  height: 40px;
+  background: #f2bd91;
+  border: 3px solid #111;
+}
+.mc-left { left: -1px; transform: rotate(12deg); }
+.mc-right { right: -1px; transform: rotate(-12deg); }
+.mc-leg {
+  position: absolute;
+  top: 78px;
+  width: 15px;
+  height: 34px;
+  background: #333c9a;
+  border: 4px solid #111;
+}
+.mc-leg-left { left: 10px; }
+.mc-leg-right { right: 10px; }
+@keyframes girlFloat {
+  50% { transform: translateY(-5px); }
+}
+
+.city-girl {
+  left: 63%;
+  bottom: 26%;
+  transform: scale(.78);
+}
+.room-girl {
+  left: 53%;
+  bottom: 17%;
+  transform: scale(.82);
+}
+
+.pixel-cat {
+  position: absolute;
+  z-index: 10;
+  font-family: "Segoe UI Emoji", sans-serif;
+  line-height: 1;
+  filter: drop-shadow(3px 4px 0 #111);
+  animation: catBounce 2.1s ease-in-out infinite;
+}
+.pixel-cat.cat-large { font-size: 58px; }
+.pixel-cat.cat-small { font-size: 36px; animation-delay: -.7s; }
+.cat-orange { color: #e98532; }
+.cat-orange-white { color: #f0a05a; }
+
+.city-characters .cat-large {
+  left: 25%;
+  bottom: 25%;
+}
+.city-characters .cat-small {
+  left: 38%;
+  bottom: 24%;
+}
+.room-characters .cat-large {
+  right: 18%;
+  bottom: 16%;
+}
+.room-characters .cat-small {
+  right: 8%;
+  bottom: 15%;
+}
+@keyframes catBounce {
+  50% { transform: translateY(-4px); }
+}
+
+/* Keep the characters visible but behind the interactive labels. */
+.scene-character .minecraft-girl,
+.scene-character .pixel-spider,
+.scene-character .pixel-cat { pointer-events: none; }
+
+@media (max-width: 800px) {
+  .city-spider-character { left: 47%; }
+  .city-girl { left: 62%; transform: scale(.66); }
+  .room-spider-character { left: 29%; transform: scale(.72); }
+  .room-girl { left: 50%; transform: scale(.68); }
+  .pixel-cat.cat-large { font-size: 48px; }
+  .pixel-cat.cat-small { font-size: 30px; }
+}
+
+@media (max-width: 500px) {
+  .city-spider-character { left: 43%; bottom: 28%; transform: scale(.65); }
+  .city-girl { left: 61%; bottom: 26%; transform: scale(.55); }
+  .room-spider-character { left: 25%; bottom: 18%; transform: scale(.6); }
+  .room-girl { left: 48%; bottom: 17%; transform: scale(.56); }
+  .city-characters .cat-large { left: 18%; bottom: 25%; }
+  .city-characters .cat-small { left: 36%; bottom: 24%; }
+  .room-characters .cat-large { right: 13%; bottom: 16%; }
+  .room-characters .cat-small { right: 4%; bottom: 15%; }
+}
+
+/* =====================================================
+   15. LOVE WORLD ARCADE — mini games
+   ===================================================== */
+.games {
+  min-height: 820px;
+  padding: 0 0 55px;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,111,177,.18), transparent 24%),
+    linear-gradient(#130d35, #0b0b26);
+  border-bottom: 6px solid #000;
+}
+.games-heading { text-align:center; }
+.games-heading > p { padding:22px 20px 8px; font-size:9px; line-height:2; color:#d9d5ff; }
+.game-score {
+  width:max-content; max-width:90%; margin:10px auto 25px; padding:10px 14px;
+  display:flex; gap:16px; align-items:center; border:3px solid #000; background:#241548; box-shadow:5px 5px #000; font-size:8px;
+}
+.game-score strong { color:#ff75b8; font-size:16px; }
+.game-grid { width:min(1180px,94%); margin:auto; display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+.game-card { min-width:0; padding:18px; border:4px solid #000; background:linear-gradient(145deg,#321b50,#181535); box-shadow:7px 7px #000; }
+.game-title { color:#ff7bbb; font-size:12px; text-shadow:2px 2px #000; margin-bottom:10px; }
+.game-card > p { color:#d9d5ef; font-size:8px; line-height:1.9; min-height:32px; }
+.game-arena { position:relative; height:205px; margin:14px 0; overflow:hidden; border:4px solid #000; background:#0d173b; }
+.spider-arena { background:linear-gradient(#12245d 0 68%,#172b62 68% 100%); }
+.spider-arena::before { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent 0 14%,#1d3a78 14% 18%,transparent 18% 34%,#1d3a78 34% 38%,transparent 38% 61%,#1d3a78 61% 65%,transparent 65% 82%,#1d3a78 82% 86%,transparent 86%); opacity:.7; }
+.arena-hust { position:absolute; top:18px; left:50%; transform:translateX(-50%); padding:8px 12px; border:3px solid #000; background:#b22b62; color:#ffd86b; font-size:10px; z-index:2; }
+.arena-sign { position:absolute; bottom:15px; left:50%; transform:translateX(-50%); font-size:7px; color:#fff; opacity:.7; }
+.hidden-spider { position:absolute; z-index:4; border:0; background:none; cursor:pointer; font-size:29px; filter:drop-shadow(3px 3px #000); animation:secretBob 1.5s ease-in-out infinite; }
+@keyframes secretBob { 50%{transform:translateY(-5px) rotate(-4deg)} }
+.game-btn { width:100%; padding:10px; border:3px solid #000; background:#151515; color:#fff; font:8px var(--pixel); cursor:pointer; box-shadow:4px 4px #000; }
+.game-btn:hover { background:#ff3f82; transform:translate(2px,2px); box-shadow:2px 2px #000; }
+.game-status { display:block; margin-top:12px; color:#ffd86a; font-size:7px; line-height:1.8; min-height:14px; }
+.cat-arena { background:linear-gradient(#39234e,#182044); }
+.cat-target { position:absolute; top:10px; left:10px; right:10px; padding:7px; text-align:center; border:2px solid #000; background:#24143c; color:#ff86bd; font-size:7px; z-index:3; }
+.hunt-cat { position:absolute; border:0; background:transparent; cursor:pointer; font-family:"Segoe UI Emoji",sans-serif; font-size:40px; filter:drop-shadow(3px 3px #000); transition:.15s; }
+.hunt-cat:hover { transform:scale(1.16); }
+.cat-a{left:8%;bottom:18%}.cat-b{left:38%;bottom:29%;font-size:51px}.cat-c{right:10%;bottom:17%;font-size:48px}.cat-d{right:38%;bottom:35%;font-size:32px}
+.quiz-box { margin-top:14px; padding:15px; min-height:205px; border:3px solid #000; background:#21163b; display:flex; flex-direction:column; justify-content:center; gap:10px; }
+.quiz-box strong { font-size:10px; line-height:1.8; color:#ffd86b; text-align:center; margin-bottom:4px; }
+.quiz-option { padding:10px 7px; border:3px solid #000; background:#3b2358; color:#fff; font:7px var(--pixel); cursor:pointer; text-align:left; }
+.quiz-option:hover { background:#b83276; }
+.quiz-option.correct { background:#277d50; }
+.quiz-option.wrong { background:#8b294d; }
+.build-arena { position:relative; height:170px; margin:14px 0 10px; overflow:hidden; border:4px solid #000; background:#78b9d8; }
+.build-sky { position:absolute; inset:0 0 36px; background:linear-gradient(#69b8e0 0 65%,#8ad47b 65%); }
+.build-sky::after { content:"☁     ☁        ☁"; position:absolute; top:18px; left:20px; color:#fff; opacity:.8; font-size:18px; white-space:nowrap; }
+.build-ground { position:absolute; left:0; right:0; bottom:0; height:38px; background:repeating-linear-gradient(45deg,#4e9b4b 0 14px,#3e843e 14px 28px); border-top:4px solid #111; }
+.build-grid { position:absolute; z-index:2; left:50%; bottom:36px; transform:translateX(-50%); width:190px; height:105px; display:grid; grid-template-columns:repeat(7,1fr); grid-template-rows:repeat(3,1fr); gap:2px; }
+.build-cell { display:grid; place-items:center; min-width:0; border:2px dashed rgba(0,0,0,.25); cursor:pointer; font-size:20px; }
+.build-cell:hover { background:rgba(255,255,255,.2); }
+.block-palette { display:flex; gap:7px; justify-content:center; }
+.block-btn { width:42px; height:36px; border:3px solid #000; background:#25204b; cursor:pointer; font-size:18px; box-shadow:3px 3px #000; }
+.block-btn.active { background:#ff4c91; transform:translate(2px,2px); box-shadow:1px 1px #000; }
+.game-unlock { width:min(800px,90%); margin:28px auto 0; padding:16px; text-align:center; border:4px solid #000; background:#17152d; box-shadow:6px 6px #000; font-size:8px; line-height:2; color:#888; }
+.game-unlock.unlocked { color:#ffd86a; background:#2b1b4c; border-color:#ff72b6; animation:unlockGlow 1.2s ease-in-out infinite alternate; }
+@keyframes unlockGlow { to { box-shadow:6px 6px #000,0 0 24px rgba(255,83,153,.55); } }
+
+@media (max-width:800px) {
+  .game-grid { grid-template-columns:1fr; }
+  .game-card > p { min-height:auto; }
+}
+/* FIX LOVE LETTER INPUT */
+.room-row {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  width: 100%;
+}
+
+.room-row .letter-input {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+}
+
+.room-row .pixel-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.letter-room,
+.letter-compose,
+.letter-board {
+  width: 100%;
+}
+
+.letter-input {
+  appearance: none;
+  -webkit-appearance: none;
+}

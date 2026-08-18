@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spider Love World ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================
+       01. BACKGROUND / EFFECTS
+       ========================= -->
+  <div class="sky"></div>
+  <div id="hearts"></div>
+  <div id="web-cursor"></div>
+
+  <!-- =========================
+       02. TOP BAR
+       ========================= -->
+  <header class="topbar">
+    <button id="musicBtn" class="pixel-btn small">♫ PLAY MUSIC</button>
+    <div class="heart-counter">❤️ <span id="heartCount">0</span></div>
+  </header>
+
+  <!-- =========================
+       03. HERO
+       ========================= -->
+  <main>
+    <section id="hero" class="hero section">
+      <div class="moon"></div>
+
+      <div class="hero-title">
+        <span>HELLO,</span>
+        <strong>MY SPIDER GIRL ❤️</strong>
+        <small>♥ WELCOME TO MY WORLD ♥</small>
+      </div>
+
+      <div class="spiderman" aria-label="Spider-Man pixel character">
+        <div class="head">
+          <i></i><i></i>
+        </div>
+        <div class="body">
+          <span class="spider-emblem" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+        <div class="arm left"></div>
+        <div class="arm right"></div>
+        <div class="leg left"></div>
+        <div class="leg right"></div>
+      </div>
+
+      <button id="enterBtn" class="pixel-btn big">
+        ENTER MY WORLD →
+      </button>
+    </section>
+
+    <!-- =========================
+         04. LOVE CITY
+         ========================= -->
+    <section id="world" class="world section">
+      <div class="section-card city-card">
+        <div class="card-title"><span class="spider-logo-badge">🕷</span> ♥ LOVE CITY ♥</div>
+        <div class="city">
+          <div class="stars"></div>
+          <div class="hust-campus" aria-hidden="true"><div class="hust-main"><span>BÁCH KHOA</span></div><div class="hust-tower"></div><div class="hust-wing left"></div><div class="hust-wing right"></div><div class="hust-trees"></div></div><div class="city-buildings"></div>
+          <div class="river"></div>
+          <div class="house house-one"></div>
+          <div class="house house-two"></div>
+          <div class="tree tree-one"></div>
+          <div class="tree tree-two"></div>
+          <div class="mini-spider"></div>
+
+          <!-- CHARACTERS: CITY FRAME -->
+          <div class="scene-character city-characters" aria-label="Spider-Man, Minecraft girl and two cats">
+            <div class="pixel-spider city-spider-character" aria-hidden="true">
+              <div class="ps-head"></div>
+              <div class="ps-body"><span class="mini-spider-emblem" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+              <i class="ps-arm ps-a1"></i><i class="ps-arm ps-a2"></i>
+              <i class="ps-leg ps-l1"></i><i class="ps-leg ps-l2"></i>
+              <i class="ps-web"></i>
+            </div>
+
+            <div class="minecraft-girl city-girl" aria-label="Minecraft girl">
+              <div class="mc-hair"></div><div class="mc-face"></div>
+              <div class="mc-body"></div><i class="mc-arm mc-left"></i><i class="mc-arm mc-right"></i>
+              <i class="mc-leg mc-leg-left"></i><i class="mc-leg mc-leg-right"></i>
+            </div>
+
+            <div class="pixel-cat cat-orange cat-large" aria-label="large orange cat">🐈</div>
+            <div class="pixel-cat cat-orange cat-small" aria-label="small orange cat">🐈</div>
+          </div>
+
+          <button class="map-label" data-scroll="#house">LOVE HOUSE ♥</button>
+          <button class="map-label garden-label" data-scroll="#surprise">GARDEN ♥</button>
+          <span class="drag-note">🖱 DRAG TO LOOK AROUND</span>
+        </div>
+      </div>
+
+      <!-- =========================
+           05. LOVE HOUSE
+           ========================= -->
+      <div id="house" class="section-card house-card">
+        <div class="card-title"><span class="spider-logo-badge">🕷</span> ♥ LOVE HOUSE ♥</div>
+
+        <div class="room">
+          <div class="lights"></div>
+          <div class="picture">❤️<br><small>US</small></div>
+          <div class="sofa"></div>
+          <div class="bear">🧸</div>
+          <div class="gift-box">🎁</div>
+
+          <!-- CHARACTERS: LOVE HOUSE FRAME -->
+          <div class="scene-character room-characters" aria-label="Spider-Man, Minecraft girl and two cats">
+            <div class="pixel-spider room-spider-character" aria-hidden="true">
+              <div class="ps-head"></div>
+              <div class="ps-body"><span class="mini-spider-emblem" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+              <i class="ps-arm ps-a1"></i><i class="ps-arm ps-a2"></i>
+              <i class="ps-leg ps-l1"></i><i class="ps-leg ps-l2"></i>
+            </div>
+
+            <div class="minecraft-girl room-girl" aria-label="Minecraft girl">
+              <div class="mc-hair"></div><div class="mc-face"></div>
+              <div class="mc-body"></div><i class="mc-arm mc-left"></i><i class="mc-arm mc-right"></i>
+              <i class="mc-leg mc-leg-left"></i><i class="mc-leg mc-leg-right"></i>
+            </div>
+
+            <div class="pixel-cat cat-orange-white cat-large" aria-label="large orange and white cat">🐈</div>
+            <div class="pixel-cat cat-orange-white cat-small" aria-label="small orange and white cat">🐈</div>
+          </div>
+
+          <button class="room-btn letter-btn" data-modal="letter">LOVE LETTER ♥</button>
+          <button class="room-btn gift-btn" data-modal="gift">OPEN GIFT</button>
+          <button class="room-btn photo-btn" data-modal="photos">PHOTOS ♥</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         06. MINI GAMES
+         ========================= -->
+    <section id="games" class="games section">
+      <div class="games-heading">
+        <div class="card-title"><span class="spider-logo-badge">🕷</span> ♥ LOVE WORLD ARCADE ♥</div>
+        <p>Chơi vài mini game để mở khóa <strong>LOVE POINTS</strong>. Hai khung bí ẩn bên dưới vẫn được giữ nguyên 🔒</p>
+        <div class="game-score"><span>💗 LOVE POINTS</span><strong id="lovePoints">0</strong><span>🏆 <b id="gameWins">0</b>/4</span></div>
+      </div>
+
+      <div class="game-grid">
+        <article class="game-card">
+          <div class="game-title">🕷 SPIDER HUNT</div>
+          <p>Tìm Spider-Man đang trốn trong khuôn viên.</p>
+          <div id="spiderArena" class="game-arena spider-arena">
+            <div class="arena-hust">HUST</div>
+            <button id="hiddenSpider" class="hidden-spider" aria-label="Tìm Spider-Man">🕷</button>
+            <span class="arena-sign">TÌM TÔI 👀</span>
+          </div>
+          <button id="newSpider" class="game-btn">🔎 TÌM SPIDER</button>
+          <span id="spiderStatus" class="game-status">Spider-Man đang trốn...</span>
+        </article>
+
+        <article class="game-card">
+          <div class="game-title">🐈 CAT HUNT</div>
+          <p>Đúng con mèo được yêu cầu mới được tính điểm.</p>
+          <div id="catArena" class="game-arena cat-arena">
+            <span id="catTarget" class="cat-target">TÌM: 🐈 MÈO CAM NHỎ</span>
+            <button class="hunt-cat cat-a" data-cat="orange-small">🐈</button>
+            <button class="hunt-cat cat-b" data-cat="orange-big">🐈</button>
+            <button class="hunt-cat cat-c" data-cat="white-big">🐈</button>
+            <button class="hunt-cat cat-d" data-cat="orange-small-2">🐈</button>
+          </div>
+          <button id="newCat" class="game-btn">🐾 ĐỔI MỤC TIÊU</button>
+          <span id="catStatus" class="game-status">Bắt đúng mèo nhé =)))</span>
+        </article>
+
+        <article class="game-card quiz-card">
+          <div class="game-title">💗 COUPLE QUIZ</div>
+          <p>Chọn câu trả lời hợp với bạn nhất.</p>
+          <div id="quizBox" class="quiz-box">
+            <strong id="quizQuestion">Buổi hẹn lý tưởng là?</strong>
+            <button class="quiz-option" data-answer="A">🏫 Đi dạo Bách Khoa</button>
+            <button class="quiz-option" data-answer="B">🎬 Xem phim cùng nhau</button>
+            <button class="quiz-option" data-answer="C">🌙 Đi lang thang ban đêm</button>
+          </div>
+          <span id="quizStatus" class="game-status">Chọn đi, không có đáp án sai ❤️</span>
+        </article>
+
+        <article class="game-card build-card">
+          <div class="game-title">🧱 LOVE HOUSE</div>
+          <p>Click các block để xây căn nhà của hai người.</p>
+          <div id="buildArena" class="build-arena">
+            <div class="build-sky"></div>
+            <div id="buildGrid" class="build-grid"></div>
+            <div class="build-ground"></div>
+          </div>
+          <div class="block-palette">
+            <button class="block-btn" data-block="🧱">🧱</button>
+            <button class="block-btn" data-block="🪵">🪵</button>
+            <button class="block-btn" data-block="🌳">🌳</button>
+            <button class="block-btn" data-block="💗">💗</button>
+            <button class="block-btn" data-block="🏠">🏠</button>
+          </div>
+          <span id="buildStatus" class="game-status">Xây ít nhất 8 block để hoàn thành ❤️</span>
+        </article>
+      </div>
+
+      <div id="gameUnlock" class="game-unlock locked">🔒 Hoàn thành mini game để nhận <strong>LOVE POINTS</strong></div>
+    </section>
+
+    <!-- =========================
+         07. SURPRISE
+         ========================= -->
+    <section id="surprise" class="surprise section">
+      <div class="surprise-box">
+        <div class="card-title"><span class="spider-logo-badge">🕷</span> ♥ SURPRISE! ♥</div>
+        <p>YOU ARE</p>
+        <strong>MY FAVORITE PERSON<br>IN EVERY UNIVERSE</strong>
+        <div class="big-heart">♥</div>
+      </div>
+
+      <div class="achievement">
+        <div class="achievement-title">🏆 ACHIEVEMENT UNLOCKED</div>
+        <div class="achievement-item">
+          <span>🏆</span>
+          <strong>MY FAVORITE PERSON ❤️</strong>
+        </div>
+        <p>Thank you for being in my life ❤️</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       07. MODAL
+       ========================= -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button id="closeModal" class="close-btn">×</button>
+
+      <div id="modalLetter" class="modal-content">
+        <h2>♥ LOVE LETTER ♥</h2>
+        <p class="letter-subtitle">Hai người dùng chung một căn phòng. Viết xong bấm GỬI — thư sẽ được lưu online để cả hai cùng đọc.</p>
+
+ <div class="letter-room">
+  <label for="roomIdInput">ROOM ID</label>
+
+  <div class="room-row">
+    <input
+      id="roomIdInput"
+      class="letter-input"
+      maxlength="24"
+      placeholder="vd: our-love-2026"
+    >
+    <button
+      id="loadRoomBtn"
+      class="pixel-btn small"
+      type="button"
+    >
+      VÀO PHÒNG
+    </button>
+  </div>
+</div>
+
+<div class="letter-compose">
+          <label for="letterName">TÊN CỦA BẠN</label>
+          <input id="letterName" class="letter-input" maxlength="30" placeholder="Tên / biệt danh">
+          <label for="letterText">VIẾT THƯ</label>
+          <textarea id="letterText" class="letter-textarea" maxlength="2000" placeholder="Viết điều bạn muốn nói với người ấy..."></textarea>
+          <div class="letter-actions">
+            <span id="letterSaveStatus" class="letter-status">Chưa kết nối</span>
+            <button id="saveLetterBtn" class="pixel-btn" type="button">GỬI THƯ ♥</button>
+          </div>
+        </div>
+
+        <div class="letter-board">
+          <div class="letter-board-head">💌 THƯ CỦA CHÚNG MÌNH <span id="letterCount">0</span></div>
+          <div id="letterList" class="letter-list">
+            <div class="empty-letter">Chưa có lá thư nào. Viết lá đầu tiên đi ❤️</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modalGift" class="modal-content">
+        <h2>🎁 OPEN GIFT</h2>
+        <div class="gift-animation">🎁</div>
+        <p>mở quà đi ck ❤️</p>
+        <button id="giftBtn" class="pixel-btn">OPEN ♥</button>
+      </div>
+
+      <div id="modalPhotos" class="modal-content">
+        <h2>📸 OUR MEMORIES</h2>
+        <div class="photo-grid">
+          <div class="memory-card"><img src="images/memory1.jpg" alt="Memory 01"><small>Memory 01</small></div>
+          <div class="memory-card"><img src="images/memory2.jpg" alt="Memory 02"><small>Memory 02</small></div>
+          <div class="memory-card"><img src="images/memory3.jpg" alt="Memory 03"><small>Memory 03</small></div>
+          <div class="memory-card"><img src="images/memory4.jpg" alt="Memory 04"><small>Memory 04</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       09. AUDIO
+       ========================= -->
+  <!-- Đặt nhạc của bạn vào assets/music.mp3 -->
+  <audio id="bgMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Firebase Realtime Database: thay CONFIG ở script.js bằng config Firebase của bạn -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
